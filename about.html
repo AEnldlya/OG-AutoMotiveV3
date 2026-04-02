@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — O.G. Automotive LLC</title>
+  <meta name="description" content="15+ years of honest auto repair in White River Junction, Vermont. Meet our ASE-certified team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── STORY ── */
+    #story { background:var(--charcoal); }
+    .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,7vw,7rem); align-items:start; margin-top:clamp(2.5rem,5vw,4rem); }
+    .story-text p { color:var(--muted); font-size:1.02rem; line-height:1.85; margin-bottom:1.3rem; }
+    .story-text p strong { color:var(--text); font-weight:500; }
+    .story-aside { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); }
+    .story-quote {
+      background:var(--steel); padding:2rem 1.8rem; position:relative;
+    }
+    .story-quote::before { content:'"'; font-family:var(--ff-display); font-size:6rem; color:rgba(26,82,204,.1); position:absolute; top:-.5rem; left:1rem; line-height:1; pointer-events:none; }
+    .story-quote p { font-size:1.1rem; color:var(--text); line-height:1.8; font-style:italic; margin-bottom:.75rem; }
+    .story-quote cite { font-family:var(--ff-ui); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-style:normal; }
+    .story-tag { background:var(--steel-mid); padding:1.5rem 1.8rem; }
+    .story-tag p { font-family:var(--ff-ui); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); line-height:1.7; }
+    @media (max-width:768px) { .story-grid { grid-template-columns:1fr; } }
+
+    /* ── VALUES ── */
+    #values { background:var(--bg); }
+    .values-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:clamp(2.5rem,5vw,4rem); }
+    .value-card { background:var(--steel); padding:2.5rem 2rem; position:relative; overflow:hidden; transition:background .3s; }
+    .value-card::before { content:''; position:absolute; bottom:0; left:0; width:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--red)); transition:width .45s cubic-bezier(.16,1,.3,1); }
+    .value-card:hover { background:var(--steel-mid); }
+    .value-card:hover::before { width:100%; }
+    .value-icon { width:40px; height:40px; color:var(--red); margin-bottom:1.2rem; }
+    .value-title { font-family:var(--ff-display); font-size:1.9rem; color:var(--white); line-height:1; margin-bottom:.6rem; }
+    .value-desc { font-size:.9rem; color:var(--muted); line-height:1.7; }
+    @media (max-width:640px) { .values-grid { grid-template-columns:1fr; } }
+
+    /* ── TEAM ── */
+    #team { background:var(--charcoal); }
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:clamp(2.5rem,5vw,4rem); }
+    .team-card { background:var(--steel); overflow:hidden; transition:background .3s; }
+    .team-card:hover { background:var(--steel-mid); }
+    .team-photo { height:260px; background:var(--steel-mid); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .team-photo img { width:100%; height:100%; object-fit:cover; filter:grayscale(20%); transition:filter .4s; }
+    .team-card:hover .team-photo img { filter:grayscale(0%); }
+    .team-photo-placeholder { display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+    .team-photo-placeholder .initials { font-family:var(--ff-display); font-size:4rem; color:rgba(26,82,204,.2); line-height:1; }
+    .team-info { padding:1.5rem; border-top:1px solid var(--border); }
+    .team-name { font-family:var(--ff-display); font-size:1.7rem; color:var(--white); line-height:1; margin-bottom:.3rem; }
+    .team-role { font-family:var(--ff-ui); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--red); margin-bottom:.6rem; }
+    .team-bio  { font-size:.88rem; color:var(--muted); line-height:1.65; }
+    @media (max-width:768px) { .team-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:480px) { .team-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="sbar"  aria-hidden="true"></div>
+  <div id="c-dot" aria-hidden="true"></div>
+  <div id="c-ring" aria-hidden="true"></div>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="why-us.html">Why Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">O.G.<span class="r"> AUTO</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="why-us.html">Why Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Book Service</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">About the Shop</div>
+    <h1 class="page-hero-title">Built on<br><span class="r">Honest</span> Work</h1>
+    <p class="page-hero-sub">15+ years of straight talk and solid repairs in the Upper Valley.</p>
+  </div>
+
+  <!-- STATS BAR -->
+  <section style="background:var(--bg); padding:0;">
+    <div class="stats-grid">
+      <div class="stat-cell reveal"><div class="stat-n" data-count="15"><span class="count-num">15</span><span class="accent">+</span></div><div class="stat-l">Years in Business</div></div>
+      <div class="stat-cell reveal"><div class="stat-n" data-count="4800"><span class="count-num">4,800</span><span class="accent">+</span></div><div class="stat-l">Cars Serviced</div></div>
+      <div class="stat-cell reveal"><div class="stat-n"><span class="count-num">100</span><span class="accent">%</span></div><div class="stat-l">Honest Quotes</div></div>
+      <div class="stat-cell reveal"><div class="stat-n"><span class="count-num">3</span></div><div class="stat-l">ASE Technicians</div></div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section id="story">
+    <div class="eyebrow reveal">Our Story</div>
+    <h2 class="sec-title reveal">Where We<br>Come From</h2>
+    <div class="story-grid">
+      <div class="story-text">
+        <p class="reveal">O.G. Automotive started with one idea: <strong>treat people the way you'd want to be treated.</strong> No runaround. No fake urgency. No selling parts someone doesn't need.</p>
+        <p class="reveal">We've been operating out of White River Junction for over 15 years. We've serviced thousands of vehicles — everything from daily commuters and farm trucks to classic restorations. Every job gets the same attention.</p>
+        <p class="reveal">We're an independent shop. That means no corporate quotas, no upsell pressures, and no passing you off to someone who doesn't know your car. When you come in, you talk to the people doing the work.</p>
+        <p class="reveal">Upper Valley drivers keep coming back because we tell them what's actually going on — even when the answer is "it can wait." That kind of honesty is rare. We intend to keep it that way.</p>
+      </div>
+      <div class="story-aside">
+        <div class="story-quote reveal">
+          <p>"We fix cars. We don't fix what isn't broken. We don't guess. We look, we diagnose, we tell you straight."</p>
+          <cite>— Mike T., Owner &amp; Lead Technician</cite>
+        </div>
+        <div class="story-tag reveal">
+          <p>INDEPENDENT &nbsp;·&nbsp; FAMILY-OWNED &nbsp;·&nbsp; ASE CERTIFIED<br>WHITE RIVER JUNCTION, VT &nbsp;·&nbsp; EST. 2009</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section id="values">
+    <div class="eyebrow reveal">What We Stand For</div>
+    <h2 class="sec-title reveal">Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 40 40" fill="none"><path d="M20 4l4 8 9 1.3-6.5 6.3 1.5 9L20 24.5l-8 4.1 1.5-9L7 13.3 16 12z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="square"/></svg>
+        <div class="value-title">Honesty First</div>
+        <p class="value-desc">We tell you what's wrong, what it costs, and whether it actually needs to be done now. No unnecessary repairs, ever.</p>
+      </div>
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 40 40" fill="none"><path d="M8 20l8 8 16-16" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="square"/><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/></svg>
+        <div class="value-title">Quality Work</div>
+        <p class="value-desc">Done right the first time. We stand behind our repairs. If something isn't right, you come back and we make it right.</p>
+      </div>
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="22" stroke="currentColor" stroke-width="1.5"/><path d="M6 16h28M14 10V6M26 10V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+        <div class="value-title">Fair Pricing</div>
+        <p class="value-desc">You get a straight number before we start. No hidden shop fees, no surprise charges on the final bill.</p>
+      </div>
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 40 40" fill="none"><path d="M20 4C12 4 6 10 6 18c0 10 14 18 14 18s14-8 14-18c0-8-6-14-14-14z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/><circle cx="20" cy="18" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+        <div class="value-title">Local Pride</div>
+        <p class="value-desc">We live and work in the Upper Valley. Our reputation is built one honest job at a time, and we intend to keep it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="eyebrow reveal">The Team</div>
+    <h2 class="sec-title reveal">Who Does<br>the Work</h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <img src="photos/mike.jpg" alt="Mike T." onerror="this.style.display='none'"/>
+          <div class="team-photo-placeholder"><div class="initials">MT</div></div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Mike T.</div>
+          <div class="team-role">Owner &amp; Lead Technician</div>
+          <p class="team-bio">25+ years in the trade. Built the shop from the ground up on one principle: do the job right or don't do it at all.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <img src="photos/chris.jpg" alt="Chris D." onerror="this.style.display='none'"/>
+          <div class="team-photo-placeholder"><div class="initials">CD</div></div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Chris D.</div>
+          <div class="team-role">Master Technician · ASE Certified</div>
+          <p class="team-bio">Specializes in diagnostics and driveability. If there's a code you can't crack, Chris will find it.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <img src="photos/alex.jpg" alt="Alex M." onerror="this.style.display='none'"/>
+          <div class="team-photo-placeholder"><div class="initials">AM</div></div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Alex M.</div>
+          <div class="team-role">Service Advisor</div>
+          <p class="team-bio">Your first point of contact. Alex makes sure you know exactly what's happening with your car and why.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <div class="eyebrow reveal" style="justify-content:center">Let's Work Together</div>
+    <h2 class="sec-title reveal">Ready to Book?</h2>
+    <p class="reveal">Come in. No appointment needed for most jobs. Or give us a call — we'll get you sorted.</p>
+    <div class="cta-actions reveal">
+      <a href="contact.html" class="btn-primary"><span>Book a Service</span></a>
+      <a href="tel:8024782224" class="btn-blue"><span>(802) 478-2224</span></a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">O.G.<span class="r"> AUTO</span></div>
+      <nav class="footer-links"><a href="about.html">About</a><a href="services.html">Services</a><a href="why-us.html">Why Us</a><a href="contact.html">Contact</a></nav>
+      <div class="footer-copy">&copy; <span id="yr"></span> O.G. Automotive LLC · White River Junction, VT</div>
+      <div class="footer-right"><a href="tel:8024782224">(802) 478-2224</a><br>160 Sykes Mountain Ave, WRJ VT</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
