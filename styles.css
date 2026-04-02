@@ -68,6 +68,7 @@ body.ch #c-ring { width:52px; height:52px; border-color:var(--red); }
 nav {
   position:fixed; top:0; left:0; right:0; z-index:900;
   display:flex; align-items:center; justify-content:space-between;
+  gap:1.5rem;
   padding:0 clamp(1.5rem,5vw,4rem); height:70px;
   border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s;
@@ -78,18 +79,14 @@ nav.scrolled {
   backdrop-filter:blur(14px);
 }
 .nav-logo {
-  display:flex; align-items:center; gap:.6rem;
-  font-family:var(--ff-display); font-size:1.5rem;
-  letter-spacing:.04em; color:var(--white);
+  display:flex; align-items:center;
+  color:var(--white); flex-shrink:0;
 }
-.nav-logo img { height:46px; width:auto; }
-.nav-logo span.r { color:var(--red); }
-
-.nav-links { display:flex; align-items:center; gap:2.5rem; list-style:none; }
+.nav-links { display:flex; align-items:center; gap:2rem; list-style:none; flex:1; justify-content:center; }
 .nav-links a {
   font-family:var(--ff-ui); font-size:.78rem;
   letter-spacing:.12em; text-transform:uppercase;
-  color:var(--muted); transition:color .2s; position:relative;
+  color:var(--muted); transition:color .2s; position:relative; white-space:nowrap;
 }
 .nav-links a::after {
   content:''; position:absolute; bottom:-4px; left:0;
@@ -100,10 +97,14 @@ nav.scrolled {
 .nav-links a:hover::after,
 .nav-links a.active::after { width:100%; }
 
+/* right-side nav group */
+.nav-right {
+  display:flex; align-items:center; gap:.6rem; flex-shrink:0;
+}
 .nav-cta {
   font-family:var(--ff-ui); font-size:.78rem;
   letter-spacing:.12em; text-transform:uppercase; font-weight:700;
-  color:var(--white); background:var(--red);
+  color:var(--white); background:var(--red); white-space:nowrap;
   padding:.55rem 1.4rem; transition:background .2s;
 }
 .nav-cta:hover { background:var(--red-light); }
@@ -132,9 +133,12 @@ nav.scrolled {
 }
 .nav-mobile a:hover { color:var(--red); }
 
-@media (max-width:768px) {
+@media (max-width:860px) {
   .nav-links,.nav-cta { display:none; }
   .nav-toggle { display:flex; }
+}
+@media (max-width:860px) {
+  nav { gap:.5rem; }
 }
 
 /* ── PAGE HERO (inner pages) ───────────────────────────── */
@@ -429,7 +433,7 @@ footer {
 .logo-lines span:nth-child(2) { width:30px; height:2px; opacity:.7; }
 .logo-lines span:nth-child(3) { width:15px; height:1.5px; opacity:.45; }
 .logo-og {
-  font-family:var(--ff-display); font-size:2rem; letter-spacing:.04em;
+  font-family:var(--ff-display); font-size:1.75rem; letter-spacing:.04em;
   color:var(--blue-light); line-height:1; flex-shrink:0;
 }
 .logo-name {
