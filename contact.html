@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — O.G. Automotive LLC</title>
+  <script>if(localStorage.getItem('og-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
   <meta name="description" content="Book a service or get in touch. 160 Sykes Mountain Ave, White River Junction, VT. Call (802) 478-2224." />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -60,7 +61,13 @@
     <a href="about.html">About</a><a href="services.html">Services</a><a href="why-us.html">Why Us</a><a href="contact.html">Contact</a>
   </div>
   <nav id="nav">
-    <a href="index.html" class="nav-logo">O.G.<span class="r"> AUTO</span></a>
+    <a href="index.html" class="nav-logo">
+      <span class="logo-wrap">
+        <span class="logo-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="logo-og">O.G.</span>
+        <span class="logo-name"><span class="logo-auto">Automotive</span><span class="logo-llc">LLC</span></span>
+      </span>
+    </a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
@@ -68,6 +75,10 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Book Service</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+      <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+    </button>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 
@@ -162,7 +173,7 @@
 
   <!-- CTA -->
   <div class="cta-banner">
-    <div class="eyebrow reveal" style="justify-content:center">Prefer to Call?</div>
+    <div class="eyebrow eyebrow-center reveal">Prefer to Call?</div>
     <h2 class="sec-title reveal">We Pick Up.</h2>
     <p class="reveal">Old-fashioned, we know. But if you need a fast answer, the phone is the fastest way.</p>
     <div class="cta-actions reveal">
@@ -172,7 +183,13 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">O.G.<span class="r"> AUTO</span></div>
+      <div class="footer-logo">
+        <span class="logo-wrap">
+          <span class="logo-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="logo-og">O.G.</span>
+          <span class="logo-name"><span class="logo-auto">Automotive</span><span class="logo-llc">LLC</span></span>
+        </span>
+      </div>
       <nav class="footer-links"><a href="about.html">About</a><a href="services.html">Services</a><a href="why-us.html">Why Us</a><a href="contact.html">Contact</a></nav>
       <div class="footer-copy">&copy; <span id="yr"></span> O.G. Automotive LLC · White River Junction, VT</div>
       <div class="footer-right"><a href="tel:8024782224">(802) 478-2224</a><br>160 Sykes Mountain Ave, WRJ VT</div>

@@ -111,6 +111,21 @@
     start();
   }
 
+  /* ── THEME TOGGLE ─────────────────────────────── */
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('og-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('og-theme', 'light');
+      }
+    });
+  }
+
   /* ── CONTACT FORM ─────────────────────────────── */
   const form = document.getElementById('contact-form');
   const msg  = document.getElementById('form-msg');
@@ -125,8 +140,17 @@
       const btn = form.querySelector('.btn-primary');
       const orig = btn.innerHTML;
       btn.innerHTML = '<span>Sending...</span>'; btn.style.pointerEvents = 'none';
+      // Replace YOUR_FORM_ID with your Formspree ID from formspree.io
+      const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+      if (FORM_ENDPOINT.includes('YOUR_FORM_ID')) {
+        btn.innerHTML = orig; btn.style.pointerEvents = '';
+        msg.className = 'form-msg ok';
+        msg.textContent = "Got your info! For the fastest response call (802) 478-2224.";
+        form.reset();
+        return;
+      }
       try {
-        const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        const res = await fetch(FORM_ENDPOINT, {
           method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }
         });
         if (res.ok) { msg.className = 'form-msg ok'; msg.textContent = "Got it — we'll be in touch. Or call (802) 478-2224."; form.reset(); }
