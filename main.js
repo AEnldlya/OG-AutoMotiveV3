@@ -155,7 +155,7 @@
         });
         if (res.ok) { msg.className = 'form-msg ok'; msg.textContent = "Got it — we'll be in touch. Or call (802) 478-2224."; form.reset(); }
         else throw new Error();
-      } catch { msg.className = 'form-msg err'; msg.textContent = 'Something went wrong. Call (802) 478-2224.'; }
+      } catch(err) { msg.className = 'form-msg err'; msg.textContent = 'Something went wrong. Call (802) 478-2224.'; }
       btn.innerHTML = orig; btn.style.pointerEvents = '';
     });
   }
