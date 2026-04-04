@@ -68,23 +68,52 @@ nav.scrolled {
   border-color:var(--border);
   backdrop-filter:blur(14px);
 }
+.nav-toggle {
+  display:none; flex-direction:column; gap:5px; cursor:pointer;
+  width:32px; height:32px; justify-content:center; grid-column:1;
+}
+.nav-toggle span { width:100%; height:2px; background:var(--white); transition:all .3s; border-radius:1px; }
+.nav-toggle.open span:nth-child(1) { transform:rotate(45deg) translate(8px,8px); }
+.nav-toggle.open span:nth-child(2) { opacity:0; }
+.nav-toggle.open span:nth-child(3) { transform:rotate(-45deg) translate(7px,-7px); }
+@media (max-width:768px) { .nav-toggle { display:flex; } }
+
 .nav-logo {
-  display:flex; align-items:center;
+  display:flex; align-items:center; justify-content:center;
   color:var(--white); height:70px;
-  grid-column:1;
-  margin-right:2rem;
+  grid-column:2;
 }
 .nav-logo img {
-  height:100%; width:auto; object-fit:contain; max-width:120px;
-  opacity:0.9; transition:opacity .3s;
+  height:100%; width:auto; object-fit:contain; max-width:100px;
+  opacity:0.85; transition:opacity .3s;
   padding:0 .5rem;
-  background:linear-gradient(90deg, rgba(26,82,204,.15) 0%, rgba(255,255,255,.1) 100%);
-  background-position:center; background-size:contain; border-radius:4px;
 }
 .nav-logo img:hover { opacity:1; }
+
+.nav-phone {
+  display:flex; align-items:center; gap:.6rem; color:var(--white);
+  font-family:var(--ff-ui); font-size:.75rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+  transition:color .2s; grid-column:3;
+}
+.nav-phone svg { color:var(--red); }
+.nav-phone:hover { color:var(--blue-light); }
+.nav-phone span { display:inline; }
+@media (max-width:768px) { .nav-phone span { display:none; } }
+
 .nav-links {
   display:none !important;
 }
+
+.nav-mobile-phone {
+  display:flex; align-items:center; gap:.8rem;
+  color:var(--red); font-family:var(--ff-ui); font-size:.85rem;
+  font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  border-top:1px solid var(--border); padding-top:1rem; margin-top:1rem;
+  transition:color .2s;
+}
+.nav-mobile-phone:hover { color:var(--blue-light); }
+.nav-mobile-phone svg { flex-shrink:0; }
 
 /* right-side nav group */
 .nav-right {
