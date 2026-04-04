@@ -79,37 +79,29 @@ nav.scrolled {
 @media (max-width:768px) { .nav-toggle { display:flex; } }
 
 .nav-right {
-  display:flex; align-items:center; gap:1.2rem; grid-column:3;
-  height:100%; position:relative; z-index:901;
+  display:flex; align-items:center; gap:1.5rem; grid-column:3;
 }
 
-.nav-home,
+.nav-home {
+  display:inline-flex; align-items:center; gap:.6rem;
+  color:var(--blue-light); text-decoration:none;
+  transition:color .2s; cursor:pointer;
+}
+
+.nav-home:hover { color:var(--white); }
+
+.nav-home svg { width:18px; height:18px; stroke:currentColor; }
+
 .nav-phone {
-  display:flex; align-items:center; justify-content:center; gap:.6rem;
+  display:inline-flex; align-items:center; gap:.5rem;
   color:var(--white); font-family:var(--ff-ui); font-size:.75rem;
-  font-weight:600; letter-spacing:.1em; text-transform:uppercase;
-  transition:color .2s, background .2s;
-  cursor:pointer !important; padding:.7rem 1.2rem; border-radius:6px;
-  background:rgba(255,255,255,.05); user-select:none;
-  position:relative; z-index:1000; pointer-events:auto !important;
-  height:fit-content; min-height:40px; line-height:1;
+  font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  text-decoration:none; transition:color .2s; cursor:pointer;
 }
 
-.nav-home svg,
-.nav-phone svg { flex-shrink:0; width:18px; height:18px; pointer-events:auto !important; }
+.nav-phone svg { width:18px; height:18px; stroke:currentColor; }
 
-.nav-home svg { color:var(--blue-light); }
-.nav-phone svg { color:var(--red); }
-
-.nav-home:hover { color:var(--blue-light); background:rgba(26,82,204,.2); }
-.nav-phone:hover { color:var(--blue-light); }
-.nav-home:hover svg { color:var(--blue-light); }
-
-.nav-phone:hover { color:var(--red-light); background:rgba(196,30,46,.2); }
-.nav-phone:hover svg { color:var(--red-light); }
-
-.nav-home span,
-.nav-phone span { display:inline; white-space:nowrap; pointer-events:auto !important; }
+.nav-phone:hover { color:var(--red); }
 @media (max-width:768px) {
   .nav-home span,
   .nav-phone span { display:none; }
