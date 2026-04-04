@@ -69,17 +69,6 @@ nav.scrolled {
   backdrop-filter:blur(14px);
 }
 
-/* desktop nav links */
-.nav-links {
-  display:flex; align-items:center; gap:clamp(.8rem,2vw,2rem);
-}
-.nav-links a {
-  font-family:var(--ff-ui); font-size:.72rem;
-  letter-spacing:.15em; text-transform:uppercase;
-  color:var(--muted); transition:color .2s; white-space:nowrap;
-}
-.nav-links a:hover, .nav-links a.active { color:var(--white); }
-
 /* phone on the right */
 .nav-right {
   display:flex; align-items:center; gap:1rem;
@@ -88,9 +77,9 @@ nav.scrolled {
   font-size:.7rem; gap:.4rem;
 }
 
-/* hamburger toggle — hidden on desktop */
+/* hamburger toggle — always visible */
 .nav-toggle {
-  display:none; flex-direction:column; gap:5px; cursor:pointer;
+  display:flex; flex-direction:column; gap:5px; cursor:pointer;
   width:32px; height:32px; justify-content:center;
   background:none; border:none; padding:4px;
 }
@@ -98,12 +87,6 @@ nav.scrolled {
 .nav-toggle.open span:nth-child(1) { transform:rotate(45deg) translate(8px,8px); }
 .nav-toggle.open span:nth-child(2) { opacity:0; }
 .nav-toggle.open span:nth-child(3) { transform:rotate(-45deg) translate(7px,-7px); }
-
-@media (max-width:860px) {
-  .nav-links { display:none; }
-  .nav-right { display:none; }
-  .nav-toggle { display:flex; }
-}
 
 /* mobile full-screen overlay — display:none is the ONLY reliable hide */
 .nav-mobile {
