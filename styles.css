@@ -85,11 +85,11 @@ nav.scrolled {
 }
 .nav-links {
   display:flex; align-items:center; justify-content:center;
-  gap:2.2rem; list-style:none;
+  gap:1rem; list-style:none; min-width:0; overflow:hidden;
 }
 .nav-links a {
-  font-family:var(--ff-ui); font-size:.78rem;
-  letter-spacing:.12em; text-transform:uppercase;
+  font-family:var(--ff-ui); font-size:.72rem;
+  letter-spacing:.10em; text-transform:uppercase;
   color:var(--muted); transition:color .2s; position:relative; white-space:nowrap;
 }
 .nav-links a::after {
@@ -454,37 +454,37 @@ footer {
 
 /* ── LOGO MARK ─────────────────────────────────────────── */
 .logo-wrap {
-  display:flex; align-items:center; gap:.55rem; color:inherit;
+  display:flex; align-items:center; gap:.4rem; color:inherit;
 }
 .logo-lines {
-  display:flex; flex-direction:column; gap:3px; flex-shrink:0;
+  display:flex; flex-direction:column; gap:2px; flex-shrink:0;
 }
 .logo-lines span { display:block; background:var(--red); }
-.logo-lines span:nth-child(1) { width:20px; height:3.5px; }
-.logo-lines span:nth-child(2) { width:30px; height:2px; opacity:.7; }
-.logo-lines span:nth-child(3) { width:15px; height:1.5px; opacity:.45; }
+.logo-lines span:nth-child(1) { width:16px; height:2.5px; }
+.logo-lines span:nth-child(2) { width:24px; height:1.5px; opacity:.7; }
+.logo-lines span:nth-child(3) { width:12px; height:1px; opacity:.45; }
 .logo-og {
-  font-family:var(--ff-display); font-size:1.75rem; letter-spacing:.04em;
+  font-family:var(--ff-display); font-size:1.5rem; letter-spacing:.04em;
   color:var(--blue-light); line-height:1; flex-shrink:0;
 }
 .logo-name {
   display:flex; flex-direction:column; justify-content:center;
-  padding-left:.35rem; border-left:1px solid var(--border);
+  padding-left:.25rem; border-left:1px solid var(--border);
 }
 .logo-auto {
-  font-family:var(--ff-ui); font-size:.62rem; font-weight:700;
-  letter-spacing:.22em; text-transform:uppercase; color:var(--blue-light);
-  line-height:1.2;
+  font-family:var(--ff-ui); font-size:.55rem; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--blue-light);
+  line-height:1.1;
 }
 .logo-llc {
-  font-family:var(--ff-ui); font-size:.52rem; font-weight:400;
-  letter-spacing:.28em; text-transform:uppercase; color:var(--muted);
-  line-height:1.2;
+  font-family:var(--ff-ui); font-size:.45rem; font-weight:400;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+  line-height:1.1;
 }
 /* footer logo — slightly smaller */
-.footer-logo .logo-og  { font-size:1.5rem; }
-.footer-logo .logo-auto { font-size:.58rem; }
-.footer-logo .logo-llc  { font-size:.48rem; }
+.footer-logo .logo-og  { font-size:1.3rem; }
+.footer-logo .logo-auto { font-size:.5rem; }
+.footer-logo .logo-llc  { font-size:.42rem; }
 
 /* ── EYEBROW CENTERED ──────────────────────────────────── */
 .eyebrow-center { justify-content:center; }
