@@ -10,28 +10,6 @@
   const yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  /* ── CURSOR ───────────────────────────────────── */
-  const dot  = document.getElementById('c-dot');
-  const ring = document.getElementById('c-ring');
-  if (dot && ring && window.matchMedia('(hover: hover)').matches) {
-    let rx = 0, ry = 0, mx = 0, my = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-    });
-    (function loop() {
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(loop);
-    })();
-    document.querySelectorAll('a, button, .svc-card, .stat-cell, .feature-item').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('ch'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('ch'));
-    });
-    document.addEventListener('mouseleave', () => { dot.style.opacity = 0; ring.style.opacity = 0; });
-    document.addEventListener('mouseenter', () => { dot.style.opacity = 1; ring.style.opacity = 1; });
-  }
-
   /* ── SCROLL PROGRESS ──────────────────────────── */
   const sbar = document.getElementById('sbar');
   if (sbar) {
