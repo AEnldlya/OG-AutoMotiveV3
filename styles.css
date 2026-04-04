@@ -84,18 +84,20 @@ nav.scrolled {
 
 .nav-home,
 .nav-phone {
-  display:flex; align-items:center; gap:.5rem; color:var(--white);
-  font-family:var(--ff-ui); font-size:.75rem; font-weight:600;
-  letter-spacing:.1em; text-transform:uppercase;
-  transition:color .2s, opacity .2s;
-  cursor:pointer; padding:.5rem; border-radius:4px;
+  display:flex; align-items:center; justify-content:center; gap:.6rem;
+  color:var(--white); font-family:var(--ff-ui); font-size:.75rem;
+  font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  transition:color .2s, background .2s;
+  cursor:pointer; padding:.7rem 1rem; border-radius:6px;
+  background:rgba(255,255,255,.05); user-select:none;
+  position:relative; z-index:901; pointer-events:auto !important;
 }
 
 .nav-home svg { color:var(--blue-light); flex-shrink:0; width:18px; height:18px; }
 .nav-phone svg { color:var(--red); flex-shrink:0; width:18px; height:18px; }
 
-.nav-home:hover { color:var(--blue-light); opacity:1; }
-.nav-phone:hover { color:var(--red-light); opacity:1; }
+.nav-home:hover { color:var(--blue-light); background:rgba(26,82,204,.2); }
+.nav-phone:hover { color:var(--red-light); background:rgba(196,30,46,.2); }
 
 .nav-home span,
 .nav-phone span { display:inline; white-space:nowrap; }
