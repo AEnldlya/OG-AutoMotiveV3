@@ -7,7 +7,7 @@
   <meta name="description" content="Full service auto repair for all makes and models. White River Junction, Vermont. Call (802) 478-2224." />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <style>
     /* ── HERO ── */
     #hero {
@@ -41,6 +41,15 @@
       z-index:2; opacity:.4; transform:rotate(18deg) translateX(40px);
     }
     .hero-content { position:relative; z-index:3; }
+    .hero-logo {
+      display:flex; justify-content:center; margin-bottom:2.5rem; opacity:0;
+    }
+    .hero-logo img {
+      height:140px; width:auto; object-fit:contain; max-width:220px;
+      opacity:0.85; transition:opacity .3s;
+      filter:drop-shadow(0 4px 16px rgba(26,82,204,.15));
+    }
+    .hero-logo img:hover { opacity:1; }
     .hero-eyebrow {
       font-family:var(--ff-ui); font-size:.72rem; letter-spacing:.25em; text-transform:uppercase;
       color:var(--silver); display:flex; align-items:center; gap:.75rem;
@@ -128,9 +137,6 @@
   </div>
 
   <nav id="nav">
-    <a href="index.html" class="nav-logo">
-      <img src="photos/logo.jpg" alt="O.G. Automotive LLC" />
-    </a>
   </nav>
 
   <!-- HERO -->
@@ -145,6 +151,9 @@
       <div class="hero-stat"><div class="hs-n">5<span class="r">★</span></div><div class="hs-l">Rated</div></div>
     </div>
     <div class="hero-content">
+      <div class="hero-logo">
+        <img src="photos/logo.jpg" alt="O.G. Automotive LLC" />
+      </div>
       <div class="hero-eyebrow">White River Junction, VT &nbsp;·&nbsp; Family Owned &amp; Operated &nbsp;·&nbsp; All Makes &amp; Models</div>
       <h1 class="hero-title">
         <span class="word b">O.G.</span><br>
@@ -309,13 +318,14 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="main.js?v=14"></script>
+  <script src="main.js?v=15"></script>
   <script>
   (function(){
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (typeof gsap !== 'undefined' && !reduced) {
       const tl = gsap.timeline({ delay: 0.1 });
-      tl.to('.hero-eyebrow', { opacity:1, duration:.7, delay:.15, ease:'power2.out' });
+      tl.to('.hero-logo', { opacity:1, duration:.8, ease:'power2.out' });
+      tl.to('.hero-eyebrow', { opacity:1, duration:.7, ease:'power2.out' }, '-=.5');
       document.querySelectorAll('.hero-title .word').forEach((w,i) => {
         tl.to(w, { clipPath:'inset(0 0 0% 0)', duration:.9, ease:'power3.out' }, i===0?'-=.3':'-=.65');
       });
@@ -324,7 +334,7 @@
         .to('.hero-scroll',  { opacity:1, duration:.6, ease:'power2.out' }, '-=.4')
         .to('.hero-stats',   { opacity:1, duration:.7, ease:'power2.out' }, '-=.5');
     } else {
-      ['.hero-eyebrow','.hero-sub','.hero-actions','.hero-scroll','.hero-stats'].forEach(s => {
+      ['.hero-logo','.hero-eyebrow','.hero-sub','.hero-actions','.hero-scroll','.hero-stats'].forEach(s => {
         document.querySelectorAll(s).forEach(el => { el.style.opacity=1; el.style.transform='none'; });
       });
       document.querySelectorAll('.hero-title .word').forEach(w => w.style.clipPath='none');
