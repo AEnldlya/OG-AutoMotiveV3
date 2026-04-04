@@ -79,7 +79,7 @@ nav.scrolled {
 .nav-toggle.open span:nth-child(3) { transform:rotate(-45deg) translate(7px,-7px); }
 @media (max-width:768px) { .nav-toggle { display:flex; } }
 
-@media (max-width:860px) { .nav-home { display:none !important; } }
+@media (min-width:861px) { nav { display:none !important; } }
 
 .nav-right {
   display:flex; align-items:center; gap:1rem;
