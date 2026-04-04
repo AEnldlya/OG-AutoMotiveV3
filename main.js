@@ -178,4 +178,38 @@
     });
   }
 
+  /* ── CAR DISASSEMBLY SCROLL ───────────────────── */
+  if (typeof gsap !== 'undefined' && !reduced) {
+    const carAnim = document.getElementById('car-anim');
+    if (carAnim) {
+      const carParts = [
+        { id: 'car-body', disperseX: 0, disperseY: -100, rotation: 0, duration: 0.8 },
+        { id: 'car-roof', disperseX: -150, disperseY: -250, rotation: -30, duration: 0.9 },
+        { id: 'car-door-front', disperseX: -250, disperseY: -150, rotation: -45, duration: 0.85 },
+        { id: 'car-door-back', disperseX: 250, disperseY: -180, rotation: 45, duration: 0.87 },
+        { id: 'car-wheel-front', disperseX: -300, disperseY: 150, rotation: 360, duration: 0.95 },
+        { id: 'car-wheel-front-center', disperseX: -300, disperseY: 150, rotation: 360, duration: 0.95 },
+        { id: 'car-wheel-back', disperseX: 300, disperseY: 180, rotation: -360, duration: 0.96 },
+        { id: 'car-wheel-back-center', disperseX: 300, disperseY: 180, rotation: -360, duration: 0.96 },
+        { id: 'car-hood', disperseX: -200, disperseY: -120, rotation: -50, duration: 0.88 },
+        { id: 'car-trunk', disperseX: 200, disperseY: -100, rotation: 50, duration: 0.89 },
+        { id: 'car-windshield', disperseX: -100, disperseY: -300, rotation: -25, duration: 0.82 },
+        { id: 'car-bumper-front', disperseX: -350, disperseY: 80, rotation: -90, duration: 0.9 }
+      ];
+      carParts.forEach((part, i) => {
+        const el = document.getElementById(part.id);
+        if (!el) return;
+        gsap.to(el, {
+          x: part.disperseX, y: part.disperseY, rotate: part.rotation, opacity: 0,
+          duration: part.duration, ease: 'power2.inOut',
+          delay: i * 0.05,
+          scrollTrigger: {
+            trigger: carAnim, start: 'top center', end: 'center center',
+            scrub: 0.6, markers: false
+          }
+        });
+      });
+    }
+  }
+
 })();

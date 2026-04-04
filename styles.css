@@ -71,8 +71,9 @@ nav.scrolled {
 .nav-toggle {
   display:none; flex-direction:column; gap:5px; cursor:pointer;
   width:32px; height:32px; justify-content:center; grid-column:1;
+  background:none; border:none; padding:4px;
 }
-.nav-toggle span { width:100%; height:2px; background:var(--white); transition:all .3s; border-radius:1px; }
+.nav-toggle span { width:100%; height:2px; background:var(--white); transition:all .3s; border-radius:1px; display:block; }
 .nav-toggle.open span:nth-child(1) { transform:rotate(45deg) translate(8px,8px); }
 .nav-toggle.open span:nth-child(2) { opacity:0; }
 .nav-toggle.open span:nth-child(3) { transform:rotate(-45deg) translate(7px,-7px); }
@@ -80,6 +81,26 @@ nav.scrolled {
 
 .nav-right {
   display:flex; align-items:center; justify-content:flex-end; gap:1rem; grid-column:3;
+  z-index:901; position:relative;
+}
+.nav-right a {
+  display:inline-flex; align-items:center; color:var(--text);
+  transition:color .2s; cursor:pointer;
+}
+.nav-right a:first-child {
+  padding:6px 8px; color:var(--text);
+}
+.nav-right a:first-child:hover {
+  color:var(--blue-light);
+}
+.nav-right a:first-child svg {
+  transition:transform .25s;
+}
+.nav-right a:first-child:hover svg {
+  transform:translateY(-2px);
+}
+.nav-btn {
+  font-size:.7rem; gap:.4rem;
 }
 .nav-cta {
   font-family:var(--ff-ui); font-size:.78rem;
@@ -88,15 +109,6 @@ nav.scrolled {
   padding:.55rem 1.4rem; transition:background .2s;
 }
 .nav-cta:hover { background:var(--red-light); }
-
-.nav-toggle {
-  display:none; flex-direction:column; gap:5px;
-  background:none; border:none; cursor:pointer; padding:4px;
-}
-.nav-toggle span { display:block; width:24px; height:1px; background:var(--white); transition:all .3s; }
-.nav-toggle.open span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2) { opacity:0; }
-.nav-toggle.open span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
 
 /* mobile full-screen overlay — display:none is the ONLY reliable hide */
 .nav-mobile {
@@ -128,6 +140,18 @@ nav.scrolled {
   nav { display:flex; justify-content:space-between; align-items:center; }
   .nav-links,.nav-cta { display:none; }
   .nav-toggle { display:flex; }
+}
+
+/* ── CAR ANIMATION ─────────────────────────────────────── */
+.car-container {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:clamp(200px, 50vw, 600px); max-width:600px; z-index:4;
+  pointer-events:none;
+}
+.car-svg { width:100%; height:auto; display:block; }
+.car-part {
+  transform-origin:center;
+  will-change:transform,opacity;
 }
 
 /* ── CONTACT REACH CARDS ───────────────────────────────── */
@@ -262,11 +286,13 @@ section { padding:clamp(4rem,10vw,8rem) clamp(1.5rem,5vw,4rem); }
   font-family:var(--ff-ui); font-size:.82rem;
   letter-spacing:.14em; text-transform:uppercase; font-weight:500;
   color:var(--text); display:inline-flex; align-items:center; gap:.5rem;
-  border-bottom:1px solid var(--border); padding-bottom:2px; transition:color .2s;
+  border-bottom:1px solid var(--border); padding:2px 4px 2px 0; transition:color .2s;
+  cursor:pointer; user-select:none; -webkit-user-select:none;
 }
-.btn-ghost svg { transition:transform .25s; }
+.btn-ghost svg { transition:transform .25s; flex-shrink:0; }
 .btn-ghost:hover { color:var(--blue-light); }
 .btn-ghost:hover svg { transform:translateX(4px); }
+.btn-ghost:active { color:var(--white); }
 
 /* ── STATS GRID ────────────────────────────────────────── */
 .stats-grid {
