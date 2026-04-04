@@ -88,13 +88,14 @@ nav.scrolled {
   transition:color .2s; cursor:pointer;
 }
 .nav-right a:first-child {
-  padding:6px 8px; color:var(--text);
+  padding:8px 12px; color:var(--text); pointer-events:auto;
+  border:none; background:none;
 }
 .nav-right a:first-child:hover {
   color:var(--blue-light);
 }
 .nav-right a:first-child svg {
-  transition:transform .25s;
+  transition:transform .25s; pointer-events:none; display:block;
 }
 .nav-right a:first-child:hover svg {
   transform:translateY(-2px);
