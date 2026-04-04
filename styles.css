@@ -80,6 +80,7 @@ nav.scrolled {
 
 .nav-right {
   display:flex; align-items:center; gap:1.2rem; grid-column:3;
+  height:100%; position:relative; z-index:901;
 }
 
 .nav-home,
@@ -88,19 +89,27 @@ nav.scrolled {
   color:var(--white); font-family:var(--ff-ui); font-size:.75rem;
   font-weight:600; letter-spacing:.1em; text-transform:uppercase;
   transition:color .2s, background .2s;
-  cursor:pointer; padding:.7rem 1rem; border-radius:6px;
+  cursor:pointer !important; padding:.7rem 1.2rem; border-radius:6px;
   background:rgba(255,255,255,.05); user-select:none;
-  position:relative; z-index:901; pointer-events:auto !important;
+  position:relative; z-index:1000; pointer-events:auto !important;
+  height:fit-content; min-height:40px; line-height:1;
 }
 
-.nav-home svg { color:var(--blue-light); flex-shrink:0; width:18px; height:18px; }
-.nav-phone svg { color:var(--red); flex-shrink:0; width:18px; height:18px; }
+.nav-home svg,
+.nav-phone svg { flex-shrink:0; width:18px; height:18px; pointer-events:auto !important; }
+
+.nav-home svg { color:var(--blue-light); }
+.nav-phone svg { color:var(--red); }
 
 .nav-home:hover { color:var(--blue-light); background:rgba(26,82,204,.2); }
+.nav-phone:hover { color:var(--blue-light); }
+.nav-home:hover svg { color:var(--blue-light); }
+
 .nav-phone:hover { color:var(--red-light); background:rgba(196,30,46,.2); }
+.nav-phone:hover svg { color:var(--red-light); }
 
 .nav-home span,
-.nav-phone span { display:inline; white-space:nowrap; }
+.nav-phone span { display:inline; white-space:nowrap; pointer-events:auto !important; }
 @media (max-width:768px) {
   .nav-home span,
   .nav-phone span { display:none; }
