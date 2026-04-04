@@ -146,4 +146,36 @@
     });
   }
 
+  /* ── STAGGERED REVEALS WITH BLUR ──────────────── */
+  if (typeof gsap !== 'undefined' && !reduced) {
+    gsap.utils.toArray('.svc-card').forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out',
+        delay: (i % 3) * 0.1,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    });
+  }
+
+  /* ── PARALLAX TEXT REVEALS ───────────────────── */
+  if (typeof gsap !== 'undefined' && !reduced) {
+    document.querySelectorAll('[data-parallax]').forEach(el => {
+      gsap.to(el, {
+        y: gsap.utils.unitize(el.dataset.parallax || -50, 'px'),
+        scrollTrigger: { trigger: el, scrub: 1, start: 'top center', end: 'bottom center' }
+      });
+    });
+  }
+
+  /* ── SCALE ON SCROLL ──────────────────────────── */
+  if (typeof gsap !== 'undefined' && !reduced) {
+    document.querySelectorAll('[data-scale]').forEach(el => {
+      const start = parseFloat(el.dataset.scale) || 0.85;
+      gsap.fromTo(el, { scale: start }, {
+        scale: 1, duration: 1, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' }
+      });
+    });
+  }
+
 })();

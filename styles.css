@@ -451,6 +451,11 @@ footer {
 
 
 
+/* ── ANIMATION INITIAL STATES ───────────────────────────── */
+.svc-card { opacity:.6; filter:blur(6px); }
+[data-scale] { transform:scale(0.85); }
+[data-parallax] { will-change:transform; }
+
 /* ── MOBILE BUTTON STACK ───────────────────────────────── */
 @media (max-width:480px) {
   .cta-actions,
