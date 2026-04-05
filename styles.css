@@ -59,9 +59,11 @@ nav {
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:clamp(.75rem,2vw,1.5rem);
   padding:0 clamp(1.5rem,5vw,4rem); height:70px;
   border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s;
+  flex-wrap:nowrap;
 }
 nav.scrolled {
   background:rgba(8,10,20,.94);
@@ -69,17 +71,35 @@ nav.scrolled {
   backdrop-filter:blur(14px);
 }
 
+.nav-links {
+  display:flex; align-items:center; flex-wrap:nowrap;
+  gap:clamp(.65rem,1.4vw,1.35rem);
+  min-width:0;
+}
+.nav-links a {
+  font-family:var(--ff-ui); font-size:.68rem; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+  white-space:nowrap; transition:color .2s;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { color:var(--white); outline:none; }
+.nav-links a.active { color:var(--red); }
+
 /* phone on the right */
 .nav-right {
   display:flex; align-items:center; gap:1rem;
+  flex-shrink:0;
 }
 .nav-btn {
   font-size:.7rem; gap:.4rem;
+  white-space:nowrap;
 }
 
-/* hamburger toggle — always visible */
+/* hamburger — mobile only */
 .nav-toggle {
-  display:flex; flex-direction:column; gap:5px; cursor:pointer;
+  display:none;
+  flex-direction:column; gap:5px; cursor:pointer;
+  flex-shrink:0;
   width:32px; height:32px; justify-content:center;
   background:none; border:none; padding:4px;
 }
@@ -116,8 +136,13 @@ nav.scrolled {
 
 @media (max-width:860px) {
   nav { justify-content:space-between; }
-  .nav-links,.nav-cta { display:none; }
+  .nav-links,.nav-cta { display:none !important; }
   .nav-toggle { display:flex; }
+}
+
+@media (min-width:861px) and (max-width:1024px) {
+  .nav-links { gap:.55rem; }
+  .nav-links a { font-size:.62rem; letter-spacing:.08em; }
 }
 
 /* ── CAR ANIMATION ─────────────────────────────────────── */
